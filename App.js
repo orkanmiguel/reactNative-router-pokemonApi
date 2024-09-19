@@ -1,20 +1,16 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, Button } from "react-native";
-import icon from "./assets/icon.png";
+import { StyleSheet, View } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import Main from "./components/Main";
+
+import Constants from "expo-constants";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Image
-        source={{
-          uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png`,
-        }}
-        style={{ width: 300, height: 300 }}
-      />
-      <Text style={styles.text}>Hello OrkaN</Text>
-      <Button title="Pulsa Aqui" onPress={() => alert("Hola")} />
+    <SafeAreaProvider style={styles.container}>
       <StatusBar style="light" />
-    </View>
+      <Main />
+    </SafeAreaProvider>
   );
 }
 
@@ -24,8 +20,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center",
-  },
-  text: {
-    color: "white",
+    paddingTop: Constants.statusBarHeight,
   },
 });
