@@ -7,10 +7,12 @@ import {
   ActivityIndicator,
   FlatList,
 } from "react-native";
+import { Link } from "expo-router";
 import { useEffect, useState } from "react";
 import { getLatesPokemon } from "../lib/pokemons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AnimatedPokemonCard, PokemonCard } from "./pokemonCard";
+import { CircleInfoIcon } from "./Icons";
 
 export default function Main() {
   console.log("hola");
@@ -27,6 +29,10 @@ export default function Main() {
   /*   console.log(pokemons[1].image); */
   return (
     <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
+      <Link href="/about" className="text-blue-400 text-xl">
+        <CircleInfoIcon />
+      </Link>
+
       {pokemons.length === 0 ? (
         <View
           style={{
