@@ -1,3 +1,4 @@
+import { Screen } from "./Screen";
 import {
   StyleSheet,
   Text,
@@ -28,11 +29,10 @@ export default function Main() {
   /*   console.log("pokimon:", pokemons); */
   /*   console.log(pokemons[1].image); */
   return (
-    <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
-      <Link href="/about" className="text-blue-400 text-xl">
-        <CircleInfoIcon />
-      </Link>
-
+    <Screen
+      className="bg-black"
+      style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}
+    >
       {pokemons.length === 0 ? (
         <View
           style={{
@@ -52,6 +52,6 @@ export default function Main() {
           )}
         ></FlatList>
       )}
-    </View>
+    </Screen>
   );
 }

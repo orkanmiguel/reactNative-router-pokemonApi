@@ -19,7 +19,7 @@ export function Nro({ id }) {
     <View
       className={`${className} w-11 h-11 rounded-full justify-center items-center`}
     >
-      <Text className="text-lg font-bold text-white">{id}</Text>
+      <Text className="text-lg font-bold text-white ">{id}</Text>
     </View>
   );
 }
