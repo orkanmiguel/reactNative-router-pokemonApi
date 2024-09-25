@@ -39,12 +39,14 @@ export default function Detail() {
         {pokeInfo === null ? (
           <ActivityIndicator color={"#fff"} size={"large"} />
         ) : (
-          <ScrollView>
+          <View>
             <View className="flex-row justify-center items-center text-center">
               <Link href={`/fullpicture/${pokeInfo.name}`} asChild>
                 <StyledPressable className="active:opacity-70 border-black active:border-white/50 mb-2  rounded-xl">
                   <View className="justify-center items-center text-center">
-                    <Text className="text-white">Normal</Text>
+                    <Text className="text-white text-2xl font-bold">
+                      Normal
+                    </Text>
 
                     <Image
                       className="mb-4 rounded"
@@ -55,7 +57,7 @@ export default function Detail() {
                 </StyledPressable>
               </Link>
               <View className="justify-center items-center text-center">
-                <Text className="text-white">Shiny</Text>
+                <Text className="text-white text-2xl font-bold">Shiny</Text>
                 <Image
                   className="mb-4 rounded"
                   source={{ uri: pokeInfo.imgShiny }}
@@ -63,17 +65,23 @@ export default function Detail() {
                 />
               </View>
             </View>
-            <View className="justify-center items-center">
-              <Text className="text-white font-bold mb-8 font-size-40">
-                Detalle del Pokemon:
+            <View className="justify-center items-center ">
+              <Text className="text-white mb-2 text-4xl font-bold">
+                Detalles del Pokemón:
               </Text>
-              <Text className="text-white">
+            </View>
+            <View className="flex flex-col space-y-5 bg-red-600 rounded-lg justify-center items-center h-60 ">
+              <Text className="text-white mb-2 text-3xl font-bold">
                 Experiencia Base : {pokeInfo.base_experience}
               </Text>
-              <Text className="text-white">Altura : {pokeInfo.height}</Text>
-              <Text className="text-white">Peso : {pokeInfo.weight}</Text>
+              <Text className="text-white mb-2 text-3xl font-bold ">
+                Altura : {pokeInfo.height * 10} CM
+              </Text>
+              <Text className="text-white mb-2 text-3xl font-bold">
+                Peso : {pokeInfo.weight * 0.1} KG
+              </Text>
             </View>
-          </ScrollView>
+          </View>
         )}
       </View>
     </Screen>

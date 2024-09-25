@@ -17,21 +17,25 @@ export function PokemonCard({ pokemon }) {
   return (
     <Link href={`/${pokemon.name}`} asChild>
       <StyledPressable className="active:opacity-70 border-black active:border-white/50 mb-2 bg-gray-500/10 rounded-xl">
-        <View key={pokemon.id} className="flex-row  ">
+        <View
+          key={pokemon.id}
+          className="flex flex-colum justify-center items-center"
+        >
           {/* <Text style={styles.id}>{pokemon.id}</Text> */}
-          <Nro id={pokemon.id} className="" />
-          <Image source={{ uri: pokemon.image }} style={styles.img} />
-          <View className="flex-shrink">
-            <Text className="mb-10" style={styles.name}>
-              {pokemon.name}
-            </Text>
-            <Text className="mt-2 flex-shrink" style={styles.detall}>
+          <View className="flex flex-row space-x-10">
+            <Nro id={pokemon.id} className="" />
+            <Image source={{ uri: pokemon.image }} style={styles.img} />
+          </View>
+
+          <Text className="mb-10 text-white font-bold text-5xl mt-2">
+            {pokemon.name}
+          </Text>
+          {/*   <Text className="mt-2 flex-shrink" style={styles.detall}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
               amet velit sed ut ducimus perspiciatis harum reiciendis quia
               deserunt delectus tempora, accusantium magni aspernatur provident
               porro veniam minima exercitationem eum.
-            </Text>
-          </View>
+            </Text> */}
         </View>
       </StyledPressable>
     </Link>
