@@ -1,11 +1,14 @@
 import { Link } from "expo-router";
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, Pressable } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { Screen } from "../components/Screen";
 import { Stack } from "expo-router";
 import { useEffect, useState } from "react";
 import { getPokeDetails } from "../lib/pokemons";
 import { ActivityIndicator, ScrollView } from "react-native";
+import { styled } from "nativewind";
+
+const StyledPressable = styled(Pressable);
 
 export default function Detail() {
   const { name } = useLocalSearchParams();
@@ -38,14 +41,19 @@ export default function Detail() {
         ) : (
           <ScrollView>
             <View className="flex-row justify-center items-center text-center">
-              <View className="justify-center items-center text-center">
-                <Text className="text-white">Normal</Text>
-                <Image
-                  className="mb-4 rounded"
-                  source={{ uri: pokeInfo.imgOrig }}
-                  style={{ width: 214, height: 300, resizeMode: "contain" }}
-                />
-              </View>
+              <Link href={`/fullpicture/${pokeInfo.name}`} asChild>
+                <StyledPressable className="active:opacity-70 border-black active:border-white/50 mb-2  rounded-xl">
+                  <View className="justify-center items-center text-center">
+                    <Text className="text-white">Normal</Text>
+
+                    <Image
+                      className="mb-4 rounded"
+                      source={{ uri: pokeInfo.imgOrig }}
+                      style={{ width: 214, height: 300, resizeMode: "contain" }}
+                    />
+                  </View>
+                </StyledPressable>
+              </Link>
               <View className="justify-center items-center text-center">
                 <Text className="text-white">Shiny</Text>
                 <Image
@@ -55,14 +63,16 @@ export default function Detail() {
                 />
               </View>
             </View>
-            <Text className="text-white font-bold mb-8">
-              Detalle del Pokemon:
-            </Text>
-            <Text className="text-white">
-              Experiencia Base : {pokeInfo.base_experience}
-            </Text>
-            <Text className="text-white">Altura : {pokeInfo.height}</Text>
-            <Text className="text-white">Peso : {pokeInfo.weight}</Text>
+            <View className="justify-center items-center">
+              <Text className="text-white font-bold mb-8 font-size-40">
+                Detalle del Pokemon:
+              </Text>
+              <Text className="text-white">
+                Experiencia Base : {pokeInfo.base_experience}
+              </Text>
+              <Text className="text-white">Altura : {pokeInfo.height}</Text>
+              <Text className="text-white">Peso : {pokeInfo.weight}</Text>
+            </View>
           </ScrollView>
         )}
       </View>
