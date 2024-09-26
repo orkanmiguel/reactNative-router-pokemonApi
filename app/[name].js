@@ -78,7 +78,7 @@ export default function Detail() {
                 Altura : {pokeInfo.height * 10} CM
               </Text>
               <Text className="text-white mb-2 text-3xl font-bold">
-                Peso : {pokeInfo.weight * 0.1} KG
+                Peso : {pokeInfo.weight / 10} KG
               </Text>
             </View>
           </View>
